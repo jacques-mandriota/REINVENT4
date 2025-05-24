@@ -41,6 +41,7 @@ def get_components(components: list[dict[str, dict]]) -> ComponentType:
     penalties = []
 
     component_registry = get_registry()
+    print(component_registry.keys())
 
     for component in components:
         component_type, component_value = list(component.items())[0]

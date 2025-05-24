@@ -24,6 +24,7 @@ def get_registry() -> dict[str, Tuple[type, type]]:
     registry = {}
 
     for _, name, ispkg in iter_namespace(components):
+        print(name)
         if ispkg:
             continue
 
@@ -35,6 +36,7 @@ def get_registry() -> dict[str, Tuple[type, type]]:
         try:
             module = importlib.import_module(name)
         except ImportError as e:
+            print(f"Component {name} could not be imported: {e}")
             logger.error(f"Component {name} could not be imported: {e}")
             continue
 
